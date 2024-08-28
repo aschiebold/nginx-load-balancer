@@ -1,0 +1,10 @@
+upstream opsManBalancer{
+  server 192.168.64.21:8080;
+  server 192.168.64.22:8080;
+}
+
+server {
+  listen 80;
+  location / {
+    proxy_pass http://opsManBalancer;
+    }
